@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Chocholate form </title>
+  </head>
+  <body>
+  {{#chocolate}}
+    <form method="post">
+      <table>
+        <tr>
+          <td><label for="label" > Label </label></td>
+          <td><input type="text" name="label" id ="label" value="{{label}}"></td>
+        </tr>
+        <tr>
+          <td><label for="manufacturer" > Manufacturer </label></td>
+          <td><input type="text" name="manufacturer" id ="manufacturer" value={{manufacturer}}></td>
+        </tr>
+        <tr>
+          <td><label for="origin" > Origin </label></td>
+          <td><input type="text" name="origin" id ="origin" value="{{origin}}"></td>
+        </tr>
+        <tr>
+          <td><label for="type" > Type </label></td>
+          <td><input type="text" name="type" id ="type" value="{{type}}"></td>
+        </tr>
+        <tr>
+          <td> Characteristics</td>
+        </tr>
+      </table>
+      <table id="characteristicsDOM">
+        <tr>
+          <td><label for="aroma" > Aroma </label></td>
+          {{#characteristics.aroma}}
+          <td><input type="text" name="aroma" id ="aroma" class="aromaDOM" value="{{.}}"></td>
+          {{/characteristics.aroma}}
+        </tr>
+        <tr>
+          <td><button type="button" id="aromaBtn"> Add tags </button></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td><label for="rawCocoa" > Raw cocoa (%) </label></td>
+          <td><input type="text" name="rawCocoa" id ="rawCocoa" value={{characteristics.rawCocoa}}></td>
+        </tr>
+        <tr>
+          <td><button type="submit" formaction="/edit/{{_id}}"> Add </button></td>
+        </tr>
+      </table>
+    </form>
+  {{/chocolate}}
+
+  <script src="./../public/js/indexPublic.js"></script>
+  </body>
+</html>

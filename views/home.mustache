@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Chocolate form </title>
+    <link rel = "stylesheet" href = "./../public/css/all.css"
+  </head>
+
+  <body>
+    <h1> Hi </h1>
+    <main>
+      <div class="c-findField">
+        <!-- <form method="post">
+          <input type="text" name="findField" id="findField" placeholder="Don't even really look for anything ... ">
+          <button type="submit" formaction="/find/:id"> Find </button>
+        </form> -->
+        <h3> List of all chocolates </h3>
+
+        <div id="allItems" class="c-allItems">
+          {{#chocolate}}
+            <div class="c-chocoList">
+              <a href="/{{_id}}"> {{label}}, {{manufacturer}}, {{type}} </a>
+              <form method="post">
+                <button type="submit" formaction="/delete/{{_id}}"> Delete </button>
+              </form>
+            </div>
+          {{/chocolate}}
+        </div>
+      </div>
+
+      <form method="post">
+        <table>
+          <tr>
+            <td><label for="label" > Label </label></td>
+            <td><input type="text" name="label" id ="label"></td>
+          </tr>
+          <tr>
+            <td><label for="manufacturer" > Manufacturer </label></td>
+            <td><input type="text" name="manufacturer" id ="manufacturer"></td>
+          </tr>
+          <tr>
+            <td><label for="origin" > Origin </label></td>
+            <td><input type="text" name="origin" id ="origin"></td>
+          </tr>
+          <tr>
+            <td><label for="type" > Type </label></td>
+            <td><input type="text" name="type" id ="type"></td>
+          </tr>
+          <tr>
+            <td> Characteristics</td>
+          </tr>
+        </table>
+        <table id="characteristicsDOM">
+          <tr>
+            <td><label for="aroma" > Aroma </label></td>
+            <td><input type="text" name="aroma" id ="aroma" class="aromaDOM"></td>
+          </tr>
+          <tr>
+            <td><button type="button" id="aromaBtn"> Add tags </button></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td><label for="rawCocoa" > Raw cocoa (%) </label></td>
+            <td><input type="text" name="rawCocoa" id ="rawCocoa"></td>
+          </tr>
+          <tr>
+            <td><button type="submit" formaction="/create"> Add </button></td>
+          </tr>
+        </table>
+      </form>
+    </main>
+
+    <script src="./../public/js/indexPublic.js"></script>
+  </body>
+</html>

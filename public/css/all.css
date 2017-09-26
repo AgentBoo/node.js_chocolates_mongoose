@@ -1,0 +1,16 @@
+body{
+  background: pink;
+}
+
+main{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.c-chocoList{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+
+}
